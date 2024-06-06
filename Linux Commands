@@ -23,6 +23,8 @@ ls -lha <location of file>
 
 ls -1 : only brings the name of the files
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 - **#Some Useful Commands**
     
     mkdir: Make directory
@@ -34,6 +36,8 @@ ls -1 : only brings the name of the files
     rm -rf : remove empty/filled directory forcefully (-r for recursive)
     
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ### #cd
 
 cd (to home)
@@ -43,6 +47,8 @@ cd Documents/'Armour Infosec' or cd Documents/Armour\ Infosec (anything location
 (harsh㉿kali)-[/var/log/redis]
 cd ../../spool
 (harsh㉿kali)-[/var/spool]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### #cp
 
@@ -69,10 +75,14 @@ See this difference carefully
 └─# cp -rv /home/harsh/Downloads/folder1 ~/home/harsh/Documents
 cp: cannot create directory '/root/home/harsh/Documents': No such file or directory
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ### #mv
 
 mv name rename
 mv is used for cut
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### **#ln - Used for creating link**
 
@@ -80,6 +90,8 @@ Two types of links:
 
 1. Soft link: ln -s : Updates the original file in real time
 2. Hard link: Creates a mirror of the actual file or folder, changes in the mirror will update the original file but deleting original file would not delete link
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### #Some essential commands:
 
@@ -100,6 +112,8 @@ Two types of links:
 ip ad = ifconfig
 route -n : routing table
 cat /etc/resolve.conf : Information of DNS
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### #Pipes and Redirects
 
@@ -168,6 +182,8 @@ ls -1 “*.txt” > output.txt
 
 ls -1 “*.cfg” >> output.txt
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ### #Compression and Archive Tools
 
 bzip2 : Replace file with compressed file (doesn’t work with folder)
@@ -199,6 +215,8 @@ TAR : Creates backup; Archive files; keeps the same form; Can be used with folde
 Untar:
 
 ⇒ tar -xvf(extract, verbose, forcefully) filename.tar
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### #Text Editor
 
@@ -277,6 +295,8 @@ Untar:
     
     Game : vim adventure
     
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ### #String Processing
 
@@ -488,6 +508,8 @@ Update the field value
 
 awk -F “:” ‘/bash/{ $1 = “Updated; print $1}’ /etc/passwd
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 ### **#User Management**
 
 User Accounts Facts
@@ -682,3 +704,34 @@ usermod -g groupid username
 usermod -G
 
 ### #chown
+
+Change owner:
+
+chown ownername filename
+
+Change owner and group:
+
+chown owner:group filename
+
+// We can give multiple filename at a time
+
+Wildcards can also be used in chown
+
+//Change folder permission
+
+chown owner folder/ 
+
+chown -R owner folder/ 
+
+### #chgrp
+
+Changes only group
+
+### #chmod
+
+Change the owner, group and other’s permissions
+
+1st block indicate the permissions of owner
+
+2nd tell the permissions of respective group
+3rd show the permissions of other users to that file
