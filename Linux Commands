@@ -245,6 +245,9 @@ Untar:
     It can merge files, it can open multiple files in one, spell check and many more
     
 - vim
+    
+    [5 Modes:](https://www.notion.so/5-Modes-acaf20494f7142079e8c34dc275f5182?pvs=21)
+    
     1. Command Mode (default)
     2. Insert Mode (i/insert)
     3. Visual Mode (v)
@@ -599,6 +602,8 @@ then run grc ping 8.8.8.8
 
 grc does not support all commands
 
+**==============================================================================**
+
 ### **#Add User**
 
 CentOS supports both useradd and adduser
@@ -735,3 +740,59 @@ Change the owner, group and other’s permissions
 
 2nd tell the permissions of respective group
 3rd show the permissions of other users to that file
+
+⇒ Give owner the permission to write, read, execute
+
+chmod u+r filename
+
+chmod u+w filename
+
+chmod u+x filename
+
+⇒ Give others to write, read, execute
+
+chmod o+r filename
+
+chmod o+w filename
+
+chmod o+x filename
+
+⇒ Give group to write, read, execute
+
+chmod g+r filename
+
+chmod g+w filename
+
+chmod g+x filename
+
+⇒ Remove owner, other or group to write, read, execute
+
+chmod u-r filename
+
+chmod o-w filename
+
+chmod g-x filename
+
+⇒ Give read, write, execute permission to all
+
+chmod a+rwx filename
+
+chmod 777 filename
+
+⇒ Similarly remove
+
+chmod a-rwx filename
+
+⇒ Give other+ group permission all
+
+chmod og+rwx filename
+
+You got the point right??
+
+Now play with it no!…not everything will be written here.
+
+⇒ Give different permissions to everyone
+
+chmod u+rwx o+rw g+r filename
+
+Wild cards also applicable here
