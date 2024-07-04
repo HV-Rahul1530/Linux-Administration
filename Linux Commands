@@ -1,8 +1,16 @@
+### Useful
+
 Know about the linux you are using 
 
 **cat /etc/os-release**
 
 **Linux Commands**
+
+**blkid** : See the file system of the OS
+
+**lsblk : which directory is mounted where**
+
+**vim .bashrc :** to create the alias of any command (e.g. ls -lh = ll )
 
 If files are in the pwd then no need to give location otherwise mention file with full location
 Starting with "~/"
@@ -15,7 +23,9 @@ Starting with "~/"
 
 cmd --help or info cmd or man cmd
 
-### #ls
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### ls
 
 ls -lhart (list form, human readable, all files(including hidden files), reverse, sorted by time)
 ls filename(contents inside file)
@@ -25,7 +35,7 @@ ls -1 : only brings the name of the files
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-- **#Some Useful Commands**
+- **Some Useful Commands**
     
     mkdir: Make directory
     touch: Make empty file
@@ -38,7 +48,7 @@ ls -1 : only brings the name of the files
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #cd
+### cd
 
 cd (to home)
 cd ..(one directory back)
@@ -50,7 +60,7 @@ cd ../../spool
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #cp
+### cp
 
 cp -v filename(with ‘from’ location) filename(with 'to' location)
 cp -v file1 file2 file3 file4 filen location1                                : All files will be capied in location1 - the last is the destination always
@@ -77,14 +87,14 @@ cp: cannot create directory '/root/home/harsh/Documents': No such file or direct
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #mv
+### mv
 
 mv name rename
 mv is used for cut
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### **#ln - Used for creating link**
+### **ln - Used for creating link**
 
 Two types of links:
 
@@ -93,7 +103,7 @@ Two types of links:
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #Some essential commands:
+### Some essential commands:
 
 **less :** used instead of cat for content only full to one page
 **tty:** type of terminal; if we are logged in in actual computer then we get tty  if we ssh terminal then we get pts(this tells us that we are logged in using third tool like ssh)
@@ -115,7 +125,7 @@ cat /etc/resolve.conf : Information of DNS
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #Pipes and Redirects
+### Pipes and Redirects
 
 ⇒ To run multiple commands at once: **“ ; ” or “ &&”**   b/w commands
 
@@ -184,7 +194,7 @@ ls -1 “*.cfg” >> output.txt
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #Compression and Archive Tools
+### Compression and Archive Tools
 
 bzip2 : Replace file with compressed file (doesn’t work with folder)
 
@@ -218,7 +228,7 @@ Untar:
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #Text Editor
+### Text Editor
 
 - cat
     
@@ -301,7 +311,7 @@ Untar:
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### #String Processing
+### String Processing
 
 wc
 
@@ -446,6 +456,10 @@ Runs the given command until stopped
     [ : space : ]  - Whitespace character (space, tab, newline)
     
 
+which - accurate location of the file
+
+where - accurate location of the file
+
 ps -aux
 
 Shows running processes
@@ -513,7 +527,56 @@ awk -F “:” ‘/bash/{ $1 = “Updated; print $1}’ /etc/passwd
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-### **#User Management**
+### Directory Structure in Linux
+
+The directory structure in Linux is hierarchical and rooted at the `/` (root) directory. Here’s an overview of the common directories found in a typical Linux filesystem:
+
+1. **`/` (Root Directory)**:
+    - The top-level directory in the hierarchy.
+2. **`/bin` (Binary)**:
+    - Essential command binaries that need to be available in single-user mode; for all users, e.g., `ls`, `cp`, `mv`.
+3. **`/boot`**:
+    - Contains the kernel and other files needed to boot the system, such as bootloader files (e.g., GRUB).
+4. **`/dev` (Device Files)**:
+    - Contains device files representing hardware components, such as `/dev/sda` for a hard drive.
+5. **`/etc` (Et Cetera)**:
+    - Contains system-wide configuration files and shell scripts that are used to boot and initialize the system, e.g., `/etc/passwd` for user account information.
+6. **`/home`**:
+    - Contains user home directories. Each user has a subdirectory here, e.g., `/home/user1`.
+7. **`/lib` (Libraries)**:
+    - Contains essential shared libraries and kernel modules needed to boot and run the system.
+8. **`/media`**:
+    - Contains mount points for removable media such as CDs, DVDs, and USB drives that are automatically mounted.
+9. **`/mnt`**:
+    - Provides a mount point for temporarily mounting filesystems, such as network filesystems or additional storage devices.
+10. **`/opt` (Optional)**:
+    - Contains add-on software packages that are not part of the default installation.
+11. **`/proc` (Process Information)**:
+    - A virtual filesystem that provides a mechanism to access process and system information from the kernel. It contains directories and files representing system and process information, e.g., `/proc/cpuinfo`.
+12. **`/root`**:
+    - The home directory for the root user (system administrator).
+13. **`/run`**:
+    - Contains transient runtime data, such as information about the running system since the last boot.
+14. **`/sbin` (System Binaries)**:
+    - Contains essential system binaries, such as administrative commands and system utilities used by the root user, e.g., `ifconfig`, `reboot`.
+15. **`/srv` (Service)**:
+    - Contains data for services provided by the system, such as web server data.
+16. **`/sys`**:
+    - A virtual filesystem that provides information about the kernel, devices, and other system components.
+17. **`/tmp` (Temporary)**:
+    - Used for temporary files created by programs. These files are usually deleted on system boot.
+18. **`/usr` (User Binaries and Read-Only Data)**:
+    - Contains user-installed software and its corresponding libraries, binaries, and documentation, e.g., `/usr/bin` for user commands, `/usr/lib` for libraries.
+19. **`/var` (Variable)**:
+    - Contains files to which the system writes data during the course of its operation, such as log files (`/var/log`), spool files (`/var/spool`), and cache files (`/var/cache`).
+
+Understanding this directory structure is crucial for system administration, navigation, and organization in Linux.
+
+4o
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### **User Management**
 
 User Accounts Facts
 
@@ -779,6 +842,13 @@ chmod a+rwx filename
 
 chmod 777 filename
 
+| PERMISSION | PROVIDE PERMISSION |
+| --- | --- |
+| read | add 4 |
+| write | add 2 |
+| execute | add 1 |
+|  |  |
+
 ⇒ Similarly remove
 
 chmod a-rwx filename
@@ -796,3 +866,454 @@ Now play with it no!…not everything will be written here.
 chmod u+rwx o+rw g+r filename
 
 Wild cards also applicable here
+
+### #Special Permissions
+
+SUID and SGID
+
+In special permission, the binary of the file is set to open with owner’s permissions everytime it is opened.
+
+Special Permission code : 4755 
+
+First locate file which you want to give special permission to 
+
+chmod u+s filelocation
+
+Remove Permission:
+
+chmod u-s filelocation
+
+To compile a c file:
+
+gcc filename.c -o compiled-file (-o for output)
+
+⇒ Check the filetype
+
+**file** filename
+
+### #Sticky bit and acl
+
+**Sticky Bit:** A sticky bit is **a permission bit that can be set on a file or directory in a Unix-based operating system, such as Linux or macOS**. It prevents anyone without permission from deleting or renaming a file or directory, even if other users have write permission to the directory. 
+
+Assume if there’s a parent directory with permission 777, then anyone can read, write execute each and every content in the directory, if user Harsh creates any file, Shreya can modify or delete it, so if we want that the User who created the file should only be able to access the file then we use sticky bit
+
+o+t : others with sticky bit OR “1777”
+
+o-t : removing sticky bit OR “0777”
+
+In this case others had the permission to read, write and execute
+
+**ACL :** If only users and group had permission to read, write and execute a file or folder and we want others to do the same without adding them to into user or group then we use ACL
+
+Run these following commands
+
+**blkid** : See the file system of the OS
+
+**lsblk :** which directory is mounted where
+
+yum repolist all : to see if package is available
+
+yum install acl
+
+rpm -qa(query for all) | grep acl : Tell the package version and name
+
+rpm -qa packagename
+
+getfacl -h
+
+setfacl -h
+
+**#su and sg**
+
+switching in the same directory : sudo su
+
+su - root (switch user and creates session)
+
+su root(switch without creating session)
+
+Run command with other user’s power without switching
+
+su username -c command
+
+e.g. 
+
+su armour -c pwd
+
+su armour -c /bin/bash
+
+Change primary group of user: 
+
+su armour -g HR
+
+Secondary:
+
+su armour -G IT
+
+**How to reset Grub or Root password in CentOS** 
+
+⇒ To change the root password we can change it through GRUB
+
+⇒ If someone locks the GRUB also then use live ISO 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Adding Path to Path Variable
+
+If we do 
+
+echo $PATH
+
+ **It will show you different paths separated by ':' for the user**. /usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin. If you type a command system will search these locations for a binary. If there are no commands with the name in those locations system will tell you ' Command not found 
+
+You can put the binary file in any of these locations it will run as executable command
+
+Or you can edit :
+
+ /etc/profile
+
+.bashrc or .zshrc or fish/config.fish file 
+
+and add 
+
+PATH=$PATH:/home/bin:/home/sbin
+
+or any location with colon( : )  
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Sudo Configurations
+
+To change sudo configurations:
+
+vim /etc/ sudoers 
+
+There are three places where ALL is written
+
+1st Place: Hosts name
+
+2nd Place: Users name:Group Name
+
+3rd Place: Permissions
+
+Change secure_path
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/4f6c59b6-70d6-4a82-9b0c-ba1141d86910/Untitled.png)
+
+To run command with a specific user privilege:
+
+sudo -u username command
+
+Add Group : 
+
+%wheel  ALL=(ALL)       ALL
+
+If you want to give any user sudo privileges; Add him to root or group with sudoers power
+
+sudo -aG root username
+
+e.g. usermod -aG wheel cent
+
+Giving limited Privileges:
+
+Edit the sudoers file but not with vim 
+
+Instead use sudoedit or visudo
+
+or sudo Editor=vim visudo
+
+**Sudo Alias Configurations:**
+
+**Host Alias**
+
+The PC or Servers whose name is  in the Host_Alias will be able to run the run after this configuration
+
+visudo
+
+Host_Alias     Alias_Name = Coma separated Hosts names
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/c97b1c1f-37e7-47b6-b23a-5f491bf9a7ee/Untitled.png)
+
+Add:
+
+user       Alias_Name = ( Permission )     ALL
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/c21ebce5-6bb0-48fb-81a7-afa3d8f2e7e6/Untitled.png)
+
+Add users name here whom you want to give permission on that pc
+
+**User Alias**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/18ea545f-d8ff-42d1-b6ee-33b73d2ba394/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/e72e6020-f77a-4483-8254-f3dd0116617b/Untitled.png)
+
+**Command Alias**
+
+Cmnd_Alias    COMMANDS = “Give Commands”
+
+username     ALL=(ALL)        COMMANDS
+
+There are various ready made Command Aliases like
+
+Services_Alias
+
+Installation_Alias
+
+Explore them
+
+SUDO possibe without password also with NOPASSWD: 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Disk Storage Management
+
+**blkid** : See the file system of the OS
+
+**lsblk : which directory is mounted where**
+
+Difference between HDD and SSD
+
+**HDD: Motor, Platter(Data is on platter), Arm, Header**
+
+How to destroy HDD: 
+
+Types of Disk:
+
+IDE :  ATA(Advanced Technology Attachment), PATA(Parllel…)
+
+SATA: Serial Advanced Technology Attachment
+
+Types of Partition:
+
+Primary
+
+Extended
+
+>Logical
+
+To make the partitions on a disk:
+
+*ls -lh /dev/ | grep br*
+
+e.g. file /dev/sdb (to know the type of file /sdb is)
+
+blkid or lsblk or fdisk -l (to know the disks and file systems on disk)
+
+fdisk /dev/sdb
+
+/dev/efi is the boot partition of linux(generally)
+
+`/boot/efi` is a directory in Linux systems that serves a specific purpose related to the system's boot process, particularly in systems that use UEFI (Unified Extensible Firmware Interface) firmware instead of the traditional BIOS (Basic Input/Output System).
+
+Permanent Mounting Partition - fstab
+
+df -h : Tells the mounting location
+
+**vim /etc/fstab:**
+
+1st place: partition to mount
+
+2nd place: where to mount
+
+3rd place: file system
+
+4th place: permissions(go with defaults)
+
+5th place: 0 or 1 (You want to check hard drives or not)
+
+6th place: 0 or 1(Depends on 5th place)
+
+⇒There are three ways to do Per Mount(Holds the 1st place in /etc/fstab file):
+
+1. By partition no.
+2. By label
+3. By UUID(Universally Unique Identifier) - Best way 
+
+**Rename the Disk Label in different file systems:** 
+
+**For ext4:**
+
+e2label /dev/partition Label_name
+
+e.g. e2label /dev/sdb data
+
+**For xfs:**
+
+xfs_admin -L label_name partition
+
+**Logical Volume Management(LVM) in Linux**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/392695bc-8c0d-4cc4-a9dd-274ec030fa8f/Untitled.png)
+
+rpm -qa | grep lvm
+
+yum install lvm2
+
+pvdisplay
+
+pvcreate volume_location ( create new physical volume)
+
+e.g. pvcreate /dev/sdb1
+
+pvdisplay
+
+vgdisplay
+
+vgcreate name disks_to_add
+
+vgcreate vg1 /dev/sdb1 /dev/sdc1 /dev/sdd1
+
+vgdisplay
+
+lvdisplay
+
+lvcreate name_of_vg —name lv_name —size 60G
+
+mkfs.xfs -f /dev/vg1/lv1 (formats the volume)
+
+**Extend volume**
+
+lvdisplay
+
+xfs_growfs -n /dev/vg1/lv1
+
+lvextend  /dev/vg1/lv1 -L sizeG
+
+lvreduce /dev/vg1/lv1 —size 
+
+**RAID (Redundant Array of Independent Disks) is a data storage technology that combines multiple physical disk drives into a single logical unit for the purposes of data redundancy, performance improvement, or both.**
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Grub Rescue
+
+If your GRUB bootloader has crashed or is not functioning correctly
+
+1. **Identify the EFI System Partition (ESP)**:
+    - According to the output of `fdisk -l`, the EFI System Partition (ESP) is `/dev/nvme0n1p1`, which is typically where GRUB's EFI files are located.
+2. **Boot into a Live Linux Environment**:
+    - You will need to boot your computer using a Live Linux USB or CD. This allows you to access your installed Linux system and repair GRUB.
+3. **Mount the Linux Partition**:
+    - Once booted into the Live environment, mount your Linux root partition (`/dev/nvme0n1p7` based on the provided information). You can do this by opening a terminal and running:
+    
+    *sudo mount /dev/nvme0n1p7 /mnt*
+    
+    - Replace `/dev/nvme0n1p7` with your actual Linux root partition if it's different.
+4. **Mount the EFI System Partition (ESP)**:
+    - Next, mount the EFI System Partition (ESP) to `/mnt/boot/efi`:
+    
+    *sudo mount /dev/nvme0n1p1 /mnt/boot/efi*
+    
+    - This assumes `/dev/nvme0n1p1` is indeed your EFI System Partition. Adjust accordingly if your ESP is located elsewhere.
+5. **Chroot into Your Installed System**:
+    - Now, you need to chroot (change root) into your installed Linux system on `/mnt`. This step sets up your environment as if you were running directly from your installed system:
+    
+    *sudo mount --bind /dev /mnt/dev
+    sudo mount --bind /proc /mnt/proc
+    sudo mount --bind /sys /mnt/sys
+    sudo chroot /mnt*
+    
+6. **Reinstall GRUB**:
+    - Once inside the chroot environment, reinstall GRUB to the EFI System Partition (ESP) using `grub-install`:
+    
+    *grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB*
+    
+7. **Update GRUB Configuration**:
+    - After reinstalling GRUB, regenerate the GRUB configuration file (`grub.cfg`):
+    
+    *update-grub*
+    
+8. **Exit Chroot and Reboot**:
+    - After updating GRUB, exit the chroot environment:
+    
+    *exit*
+    
+    - Unmount all mounted partitions:
+    
+    *sudo umount /mnt/dev
+    sudo umount /mnt/proc
+    sudo umount /mnt/sys
+    sudo umount /mnt/boot/efi
+    sudo umount /mnt*
+    
+9. **Restart Your Computer**:
+    - Remove the Live Linux USB or CD and restart your computer. GRUB should now be reinstalled and should appear during boot, allowing you to choose your operating system.
+    
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Package Manager
+
+To know the Linux
+
+cat /etc/os-release
+
+or uname -a
+
+or rpm - Package Manager(if this command is running that  means it is red hat) - false positive sometimes
+
+or dpkg - Package Manager (if this command is running that means it is debian)
+
+or yum - Advanced Package Manager(runs in Red hat)
+
+or apt - Advanced Package Manager(runs in debian)
+
+- **CentOS**
+    
+    Package - A bunch or bundle
+    
+    Linux is a file based Operating System i.e. we put file in linux and it will run it. So a package is a bundle of different files which when downloaded takes their respective places automatically.
+    
+    Windows is a registry based Operating System.
+    
+    Standalone Binary: The binaries which doesn’t require any dependencies
+    
+    Red Hat: 
+    
+    .rpm extensions
+    
+    use of package: RPM cmd used for installing software, documentation and source code
+    
+    Types: RPM(binary) , SRPM(source code)
+    
+     RPM database location : /var/lib/rpm
+    
+    **Different options in rpm**
+    
+    man rpm(rpm manual)
+    
+    rpm -q (query)
+    
+    rpm -qa | grep vim (searches for vim package)
+    
+    rpm -qa | wc -l ( installed packages)
+    
+    rpm -qi (information of package)
+    
+    rpm -ql (data-file in the package)
+    
+    rpm -qc (configurations)
+    
+    rpm -qd (documentation)
+    
+    rpm -qR (Required or Dependencies or package)
+    
+    rpm -qpa( a = c, d, i, R, l) : Without installation -qp
+    
+    rpm -qip (information without installation)
+    
+    To find the package name:
+    
+    whereis cmd (Finds location of binary)
+    
+    e.g. whereis cat
+    
+    rpm -qf binary_location
+    
+    e.g. rpm -qf /usr/bin/cat
+    
+    ---
+    
+    ---
+    
+    rpm -Vvp package(Verify everything is okay, verbose and package)
