@@ -1317,3 +1317,289 @@ or apt - Advanced Package Manager(runs in debian)
     ---
     
     rpm -Vvp package(Verify everything is okay, verbose and package)
+    
+    rpm -i package_name(install)
+    
+    rpm -e package(erase = delete)
+    
+    rpm —nodeps -ivh(installs inspite dependencies without downloading the dependencies, h for human readable)
+    
+    rpm -U (if package not present then download, if present then upgrade)
+    
+    **Yum Package Manager**
+    
+    Learn Yum Configurations from somewhere
+    
+    yum repolist : Shows all available repos(enabled)
+    
+    yum repolist all : Enabled + Disabled
+    
+    yum list : Shows all packages
+    
+    yum list all : Installed + all packages
+    
+    yum list installed : Only installed packages
+    
+    yum list recent : Recently added or installed
+    
+    yum list extras
+    
+    yum check : Checks yum database for problems
+    
+    yum check-update : Updated versions of installed packages
+    
+    yum update
+    
+    yum upgrade : Upgrades on Kernel level; Upgrades to new linux by deleting previous one
+    
+    yum info package: Info of package
+    
+    yum update package
+    
+    yum install python
+    
+    yum install curl(client URL)
+    
+    yum search vim: Searches packages of vim
+    
+    yum info vim
+    
+    yum install net-tools (network tools)
+    
+    yum remove package
+    
+    yum downgrade package —skip-broken
+    
+    yum depolist package: dependencies list
+    
+    yum reinstall package
+    
+    yum langavailable: Available and usable languages
+    
+    yum distro-sync
+    
+    **Yum Group Commands : Used to download a set of packages**
+    
+    yum groups list
+    
+    e.g. yum group “server with GUI”
+    
+    yum install group\ name
+    
+    yum groups summary “group name”
+    
+    yum groups remove “”
+    
+    Network Configuration:
+    
+    Three types of UI
+    
+    CLI
+    
+    GUI
+    
+    TUI
+    
+    nmtui:
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/78b997f6-e6ac-44d8-8410-8189b0466cb3/Untitled.png)
+    
+    **Converting CentOS Minimal to GUI/Everything**
+    
+    yum repolist all
+    
+    yum search epl
+    
+    yum install epel-release.noarch (Adds packages)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/558efd09-91d7-4cb3-b2d8-9a5f454ee8de/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/eaea885a-6164-4d85-9f89-f96e9b8a33e6/Untitled.png)
+    
+    yum install bash*
+    
+    yum install vim
+    
+    yum install net-tools
+    
+
+- Debian
+    
+    **dpkg**
+    
+    dpkg —print-architecture
+    
+    dpkg
+    
+    dpkg -l : List of all installed packages
+    
+    dpkg -s vim : s for search
+    
+    dpkg -L : Files of a package
+    
+    grep net-tools
+    
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### **Network Configurations in CentOS 9**
+
+ip addr show or ip a or ifconfig -a (see all interfaces)
+
+Public IP in terminal: curl -4 icanhazip.com
+
+Change hostname(domain name):
+
+vim /etc/hostname 
+
+Settings of DNS:
+
+cat /etc/resolv.conf
+
+route -n
+
+IP Configuration through terminal
+
+Static: 
+
+cd /etc/NetworkManager/system-connections
+
+ls
+
+vim “wlan0” (wlan0 is one of the chosen file to edit)
+
+method=static
+
+Dynamic:
+
+Edit method=auto
+
+sudo systemctl restart NetworkManager
+
+Give multiple IPs to one interface
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/75b76f18-09da-4f5d-9ec8-efe68b993434/Untitled.png)
+
+Giving `temporary`:
+
+IP:
+
+ifconfig interface_name 192.168.1.x (x= 1 to 255)
+
+ifconfig interface up/down (shuts and starts interfaces)
+
+Above command and ifdown/ifup are different: ifdown does on Kernel level
+
+Gateway:
+
+route add default gw 192.168.1.x interface
+
+route del default gw 192.168.1.x interface
+
+DNS:
+
+cat /etc/resolv.conf
+
+echo “nameserver 64.6.44.7” > /etc/resolv.conf
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Network tools in Linux
+
+Ping:
+
+ping <ip> -s size_of_packet -c count_of_packets
+
+ping <name>
+
+ping -4 <name> (-4 for IPv4)
+
+ping -6 <name>
+
+ping -6 <name> -f (fast)
+
+Traceroute/tracepath:
+
+routers in between the us and the triggered IP
+
+Netstat/ss: 
+
+netstat -t/u (tcp/udp)
+
+-n (numeric value of port)
+
+-l (All listening ports)
+
+ -r (routing table)
+
+-p (program/process name)
+
+netstat -nltup ()
+
+netstat -ntup ()
+
+netstat -natup
+
+Process Monitor(ps/top):
+
+ps -aux(processes on current terminal)
+
+ps -e
+
+ps -ely
+
+ps -axjf (process tree: main processes with child processes)
+
+top (live running processes)
+
+htop (updated version of top)
+
+htop -t (tree)
+
+Foreground and Background Processes
+
+ping 8.8.8.8> /dev/null
+
+ping 8.8.8.8 > /dev/null & (capture the terminal again)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9d57550-3f7e-43fd-91d7-c9e38f29ee9d/25aa2d40-0da1-4a3a-88ac-d467c3249895/Untitled.png)
+
+getting back to foreground
+
+jobs (shows background processes)
+
+fg (foregrounds latest back-grounded process)
+
+fg 2 ,fg 3 ,fg n
+
+Kill process(kill/pkill)
+
+copy pid from ps -aux
+
+then,
+
+kill -9 pid
+
+killall pid/name/user(user killall -h)
+
+killall -r (regular expression)
+
+Free:
+
+free -h (human readable)
+
+-m/-g (mb, gb)
+
+vmstat: (Used when load is high on server to see RAM and SWAP memory)
+
+-a
+
+-d
+
+-S
+
+sysstat
+
+iostat
+
+lsof (All in one networking and processes tool)
